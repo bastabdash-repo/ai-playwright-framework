@@ -1,0 +1,134 @@
+```json
+[
+  {
+    "id": "TC001",
+    "type": "functional",
+    "title": "Login with valid credentials",
+    "priority": "High",
+    "steps": [
+      {
+        "step_id": "S1",
+        "description": "Open the login page",
+        "preconditions": ["Application is launched"],
+        "expected_result": "Login page displayed"
+      },
+      {
+        "step_id": "S2",
+        "description": "Enter valid username and password",
+        "input_values": {
+          "username": "valid_username",
+          "password": "valid_password"
+        },
+        "preconditions": ["Login form is visible"],
+        "expected_result": "Login successful"
+      },
+      {
+        "step_id": "S3",
+        "description": "Verify login success message",
+        "input_values": {},
+        "preconditions": ["Login page displayed after login"],
+        "expected_result": "Login success message displayed"
+      }
+    ],
+    "result": "Pass",
+    "reason": "",
+    "notes": ""
+  },
+  {
+    "id": "TC002",
+    "type": "functional",
+    "title": "Invalid credentials",
+    "priority": "High",
+    "steps": [
+      {
+        "step_id": "S1",
+        "description": "Open the login page",
+        "preconditions": ["Application is launched"],
+        "expected_result": "Login page displayed"
+      },
+      {
+        "step_id": "S2",
+        "description": "Enter invalid username and password",
+        "input_values": {
+          "username": "invalid_username",
+          "password": "invalid_password"
+        },
+        "preconditions": ["Login form is visible"],
+        "expected_result": "Login error message displayed"
+      }
+    ],
+    "result": "Pass",
+    "reason": "",
+    "notes": ""
+  },
+  {
+    "id": "TC003",
+    "type": "functional",
+    "title": "Forgot Password link",
+    "priority": "High",
+    "steps": [
+      {
+        "step_id": "S1",
+        "description": "Open the login page",
+        "preconditions": ["Application is launched"],
+        "expected_result": "Login page displayed"
+      },
+      {
+        "step_id": "S2",
+        "description": "Click on forgot password link",
+        "input_values": {},
+        "preconditions": ["Forgot password link visible"],
+        "expected_result": "Forgot password page displayed"
+      }
+    ],
+    "result": "Pass",
+    "reason": "",
+    "notes": ""
+  },
+  {
+    "id": "TC004",
+    "type": "functional",
+    "title": "Password field masked",
+    "priority": "High",
+    "steps": [
+      {
+        "step_id": "S1",
+        "description": "Open the login page",
+        "preconditions": ["Application is launched"],
+        "expected_result": "Login page displayed"
+      },
+      {
+        "step_id": "S2",
+        "description": "Click on password field to reveal text",
+        "input_values": {},
+        "preconditions": ["Password field visible"],
+        "expected_result": "Password field text revealed"
+      }
+    ],
+    "result": "Pass",
+    "reason": "",
+    "notes": ""
+  }
+]
+```
+
+In this JSON object, we have a list of test cases. Each test case has the following properties:
+
+- `id`: Unique identifier for the test case
+- `type`: Type of testing (functional)
+- `title`: Title of the user story or feature being tested
+- `priority`: Priority level of the test case
+- `steps`: List of individual steps required to execute the test case
+- `result`: Expected result of the test case (Pass/Fail)
+- `reason`: Reason for passing or failing the test case (empty for now, but can be populated later)
+- `notes`: Additional notes about the test case
+
+The `steps` property is a list of individual steps that need to be executed to test the user story. Each step has its own properties:
+
+- `step_id`: Unique identifier for the step
+- `description`: Brief description of the step
+- `preconditions`: List of preconditions required to execute the step (e.g., login form is visible)
+- `input_values`: List of input values needed to execute the step (e.g., username and password)
+- `expected_result`: Expected result of the step
+
+This format can be easily extended or modified as needed.

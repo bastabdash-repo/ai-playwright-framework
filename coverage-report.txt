@@ -1,0 +1,26 @@
+
+==============================
+AI COVERAGE REPORT
+==============================
+
+Total Requirements:
+4
+
+Covered:
+3
+
+Missing:
+1
+
+Coverage:
+75%
+
+Covered Scenarios:
+
+Login with valid credentials
+Login with invalid credentials
+Verify password masking
+
+Missing Scenarios:
+
+Forgot Password link visibility

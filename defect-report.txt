@@ -1,0 +1,168 @@
+
+==================================
+AI DEFECT REPORT
+==================================
+
+Failure Summary:
+Playwright test failed.
+
+Root Cause Analysis:
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: generated/ai-login.spec.ts >> Login with valid credentials
+- Location: tests/generated/ai-login.spec.ts:5:5
+
+# Error details
+
+```
+Error: expect(locator).toBeVisible() failed
+
+Locator: locator('.wrong-class')
+Expected: visible
+Timeout: 5000ms
+Error: element(s) not found
+
+Call log:
+  - Expect "toBeVisible" with timeout 5000ms
+  - waiting for locator('.wrong-class')
+
+```
+
+```yaml
+- button "Open Menu"
+- img "Open Menu"
+- text: Swag Labs Products Name (A to Z)
+- combobox:
+  - option "Name (A to Z)" [selected]
+  - option "Name (Z to A)"
+  - option "Price (low to high)"
+  - option "Price (high to low)"
+- link "Sauce Labs Backpack":
+  - /url: "#"
+  - img "Sauce Labs Backpack"
+- link "Sauce Labs Backpack":
+  - /url: "#"
+- text: carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection. $29.99
+- button "Add to cart"
+- link "Sauce Labs Bike Light":
+  - /url: "#"
+  - img "Sauce Labs Bike Light"
+- link "Sauce Labs Bike Light":
+  - /url: "#"
+- text: A red light isn't the desired state in testing but it sure helps when riding your bike at night. Water-resistant with 3 lighting modes, 1 AAA battery included. $9.99
+- button "Add to cart"
+- link "Sauce Labs Bolt T-Shirt":
+  - /url: "#"
+  - img "Sauce Labs Bolt T-Shirt"
+- link "Sauce Labs Bolt T-Shirt":
+  - /url: "#"
+- text: Get your testing superhero on with the Sauce Labs bolt T-shirt. From American Apparel, 100% ringspun combed cotton, heather gray with red bolt. $15.99
+- button "Add to cart"
+- link "Sauce Labs Fleece Jacket":
+  - /url: "#"
+  - img "Sauce Labs Fleece Jacket"
+- link "Sauce Labs Fleece Jacket":
+  - /url: "#"
+- text: It's not every day that you come across a midweight quarter-zip fleece jacket capable of handling everything from a relaxing day outdoors to a busy day at the office. $49.99
+- button "Add to cart"
+- link "Sauce Labs Onesie":
+  - /url: "#"
+  - img "Sauce Labs Onesie"
+- link "Sauce Labs Onesie":
+  - /url: "#"
+- text: Rib snap infant onesie for the junior automation engineer in development. Reinforced 3-snap bottom closure, two-needle hemmed sleeved and bottom won't unravel. $7.99
+- button "Add to cart"
+- link "Test.allTheThings() T-Shirt (Red)":
+  - /url: "#"
+  - img "Test.allTheThings() T-Shirt (Red)"
+- link "Test.allTheThings() T-Shirt (Red)":
+  - /url: "#"
+- text: This classic Sauce Labs t-shirt is perfect to wear when cozying up to your keyboard to automate a few tests. Super-soft and comfy ringspun combed cotton. $15.99
+- button "Add to cart"
+- contentinfo:
+  - list:
+    - listitem:
+      - link "Twitter":
+        - /url: https://twitter.com/saucelabs
+    - listitem:
+      - link "Facebook":
+        - /url: https://www.facebook.com/saucelabs
+    - listitem:
+      - link "LinkedIn":
+        - /url: https://www.linkedin.com/company/sauce-labs/
+  - text: © 2026 Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy
+```
+
+# Test source
+
+```ts
+  1  | 
+  2  | import { test, expect } from '@playwright/test';
+  3  | 
+  4  | 
+  5  | test('Login with valid credentials', async ({ page }) => {
+  6  |   await page.goto('https://www.saucedemo.com');
+  7  | 
+  8  |   await page.locator('#user-name')
+  9  |     .fill('standard_user');
+  10 | 
+  11 |   await page.locator('#password')
+  12 |     .fill('secret_sauce');
+  13 | 
+  14 |   await page.locator('#login-button')
+  15 |     .click();
+  16 | 
+  17 |  await expect(
+  18 |   page.locator('.wrong-class')
+> 19 | ).toBeVisible();
+     |   ^ Error: expect(locator).toBeVisible() failed
+  20 | });
+  21 | 
+  22 | test('Login with invalid credentials', async ({ page }) => {
+  23 |   // TODO
+  24 | });
+  25 | 
+  26 | test('Login with empty username', async ({ page }) => {
+  27 |   await page.goto('https://www.saucedemo.com');
+  28 | 
+  29 |   await page.locator('#password')
+  30 |     .fill('secret_sauce');
+  31 | 
+  32 |   await page.locator('#login-button')
+  33 |     .click();
+  34 | });
+  35 | 
+  36 | test('Login with empty password', async ({ page }) => {
+  37 |   // TODO
+  38 | });
+  39 | 
+  40 | test('Verify password masking', async ({ page }) => {
+  41 |   // TODO
+  42 | });
+  43 | 
+```
+
+Possible Reasons:
+1. Locator may have changed.
+2. Page loaded differently.
+3. Incorrect assertion.
+4. Application behavior changed.
+
+Recommendations:
+- Verify locator.
+- Verify DOM structure.
+- Open screenshot.
+- Open video recording.
+
+Artifacts:
+Screenshot:
+test-failed-1.png
+
+Video:
+video.webm

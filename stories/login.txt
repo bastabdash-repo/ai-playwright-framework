@@ -1,0 +1,9 @@
+As a customer,
+I want to login into the application
+So that I can access my account.
+
+Acceptance Criteria:
+1. User can login with valid credentials.
+2. Invalid credentials should show error.
+3. Forgot Password link should be visible.
+4. Password field should be masked.
