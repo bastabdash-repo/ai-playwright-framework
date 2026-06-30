@@ -4,7 +4,6 @@
   "description": "AI-Powered Playwright Automation Framework with Llama, Self-Healing, Browser Agent, and AI Defect Reporting",
   "main": "index.js",
   "type": "commonjs",
-
   "scripts": {
     "story": "ts-node src/storyParser.ts",
     "generate": "ts-node src/testAgent.ts",
@@ -14,7 +13,6 @@
     "pipeline": "ts-node src/pipeline/pipeline.ts",
     "show-report": "playwright show-report"
   },
-
   "keywords": [
     "playwright",
     "typescript",
@@ -25,15 +23,13 @@
     "self-healing",
     "mcp"
   ],
-
   "author": "Bastab Dash",
   "license": "ISC",
-
   "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
     "cheerio": "^1.2.0",
     "dotenv": "^17.4.2"
   },
-
   "devDependencies": {
     "@playwright/test": "^1.61.1",
     "@types/node": "^26.0.1",

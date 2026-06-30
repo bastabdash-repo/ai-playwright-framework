@@ -2,15 +2,9 @@ node_modules/
 playwright-report/
 test-results/
 coverage/
-
 reports/
-
 *.log
-
 .env
-
 dist/
-
 .DS_Store
-
 .vscode/settings.json

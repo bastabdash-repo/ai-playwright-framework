@@ -4,13 +4,11 @@ import {
   exploreLoginPage
 } from './agent/browserAgent';
 
-import {
-  generateTestIdeas
-} from './agent/testIdeaGenerator';
+import {generateTestIdeas} from './agent/testIdeaGenerator';
 
 import {
   generateScript
-} from './agent/testScriptGenerator';
+} from './agent/testScriptGenerator.js';
 
 async function run() {
   const elements =
@@ -24,15 +22,17 @@ async function run() {
     );
 
   let content = `
-import { test, expect } from '@playwright/test';
+import { test, expect }
+from '@playwright/test';
 
 `;
 
   for (const idea of ideas) {
-    content += generateScript(
-      idea,
-      elements
-    );
+    content +=
+      generateScript(
+        idea,
+        elements
+      );
   }
 
   fs.writeFileSync(

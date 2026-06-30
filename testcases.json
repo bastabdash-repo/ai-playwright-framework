@@ -1,134 +1,160 @@
-```json
+```
 [
   {
     "id": "TC001",
     "type": "functional",
     "title": "Login with valid credentials",
     "priority": "High",
+    "description": "Validate successful login with valid username and password",
+    "preconditions": [
+      "User is on the login page"
+    ],
     "steps": [
       {
         "step_id": "S1",
-        "description": "Open the login page",
-        "preconditions": ["Application is launched"],
-        "expected_result": "Login page displayed"
+        "action": "Enter valid username and password",
+        "expected_result": "Login button should be enabled"
       },
       {
         "step_id": "S2",
-        "description": "Enter valid username and password",
-        "input_values": {
-          "username": "valid_username",
-          "password": "valid_password"
-        },
-        "preconditions": ["Login form is visible"],
-        "expected_result": "Login successful"
-      },
-      {
-        "step_id": "S3",
-        "description": "Verify login success message",
-        "input_values": {},
-        "preconditions": ["Login page displayed after login"],
-        "expected_result": "Login success message displayed"
+        "action": "Click on Login button",
+        "expected_result": "User is redirected to dashboard or home page"
       }
     ],
-    "result": "Pass",
-    "reason": "",
-    "notes": ""
+    "edges_for_failure": [
+      {
+        "edge_id": "E1",
+        "description": "Invalid username or password",
+        "steps": [
+          {
+            "step_id": "S3",
+            "action": "Enter invalid username and password",
+            "expected_result": "Error message should be displayed"
+          }
+        ]
+      },
+      {
+        "edge_id": "E2",
+        "description": "Network error or server failure",
+        "steps": [
+          {
+            "step_id": "S4",
+            "action": "Click on Login button",
+            "expected_result": "Error message should be displayed"
+          }
+        ]
+      }
+    ],
+    "reference_numbers": ["SRS-001"]
   },
   {
     "id": "TC002",
     "type": "functional",
-    "title": "Invalid credentials",
-    "priority": "High",
+    "title": "Forgot Password link visibility",
+    "priority": "Medium",
+    "description": "Validate that the forgot password link is visible on the login page",
+    "preconditions": [
+      "User is on the login page"
+    ],
     "steps": [
       {
-        "step_id": "S1",
-        "description": "Open the login page",
-        "preconditions": ["Application is launched"],
-        "expected_result": "Login page displayed"
-      },
-      {
-        "step_id": "S2",
-        "description": "Enter invalid username and password",
-        "input_values": {
-          "username": "invalid_username",
-          "password": "invalid_password"
-        },
-        "preconditions": ["Login form is visible"],
-        "expected_result": "Login error message displayed"
+        "step_id": "S5",
+        "action": "Check if forgot password link is visible on the login page",
+        "expected_result": "Forgot password link should be visible"
       }
     ],
-    "result": "Pass",
-    "reason": "",
-    "notes": ""
+    "edges_for_failure": [
+      {
+        "edge_id": "E3",
+        "description": "Login page is not displayed correctly",
+        "steps": [
+          {
+            "step_id": "S6",
+            "action": "Check if forgot password link is visible on the login page",
+            "expected_result": "Forgot password link should be visible"
+          }
+        ]
+      }
+    ],
+    "reference_numbers": ["SRS-002"]
   },
   {
     "id": "TC003",
     "type": "functional",
-    "title": "Forgot Password link",
-    "priority": "High",
+    "title": "Password field masking",
+    "priority": "Low",
+    "description": "Validate that the password field is masked on the login page",
+    "preconditions": [
+      "User is on the login page"
+    ],
     "steps": [
       {
-        "step_id": "S1",
-        "description": "Open the login page",
-        "preconditions": ["Application is launched"],
-        "expected_result": "Login page displayed"
-      },
-      {
-        "step_id": "S2",
-        "description": "Click on forgot password link",
-        "input_values": {},
-        "preconditions": ["Forgot password link visible"],
-        "expected_result": "Forgot password page displayed"
+        "step_id": "S7",
+        "action": "Check if password field is visible and masked",
+        "expected_result": "Password field should be masked"
       }
     ],
-    "result": "Pass",
-    "reason": "",
-    "notes": ""
+    "edges_for_failure": [
+      {
+        "edge_id": "E4",
+        "description": "Login page is not displayed correctly",
+        "steps": [
+          {
+            "step_id": "S8",
+            "action": "Check if password field is visible and masked",
+            "expected_result": "Password field should be masked"
+          }
+        ]
+      }
+    ],
+    "reference_numbers": ["SRS-003"]
   },
   {
     "id": "TC004",
     "type": "functional",
-    "title": "Password field masked",
+    "title": "Forgot Password link functionality",
     "priority": "High",
+    "description": "Validate that the forgot password link redirects to a secure page for reset",
+    "preconditions": [
+      "User is on the login page"
+    ],
     "steps": [
       {
-        "step_id": "S1",
-        "description": "Open the login page",
-        "preconditions": ["Application is launched"],
-        "expected_result": "Login page displayed"
+        "step_id": "S9",
+        "action": "Click on Forgot Password link",
+        "expected_result": "User should be redirected to forgot password page"
       },
       {
-        "step_id": "S2",
-        "description": "Click on password field to reveal text",
-        "input_values": {},
-        "preconditions": ["Password field visible"],
-        "expected_result": "Password field text revealed"
+        "step_id": "S10",
+        "action": "Verify that the forgot password page is secure",
+        "expected_result": "Forgot password page should have a 'back' button and other security measures"
       }
     ],
-    "result": "Pass",
-    "reason": "",
-    "notes": ""
+    "edges_for_failure": [
+      {
+        "edge_id": "E5",
+        "description": "Forgot password link is not clickable or functional",
+        "steps": [
+          {
+            "step_id": "S11",
+            "action": "Click on Forgot Password link",
+            "expected_result": "User should be redirected to forgot password page"
+          }
+        ]
+      },
+      {
+        "edge_id": "E6",
+        "description": "Forgot password page is not secure or has a valid 'back' button",
+        "steps": [
+          {
+            "step_id": "S12",
+            "action": "Verify that the forgot password page is secure",
+            "expected_result": "Forgot password page should have a 'back' button and other security measures"
+          }
+        ]
+      }
+    ],
+    "reference_numbers": ["SRS-004"]
   }
 ]
 ```
-
-In this JSON object, we have a list of test cases. Each test case has the following properties:
-
-- `id`: Unique identifier for the test case
-- `type`: Type of testing (functional)
-- `title`: Title of the user story or feature being tested
-- `priority`: Priority level of the test case
-- `steps`: List of individual steps required to execute the test case
-- `result`: Expected result of the test case (Pass/Fail)
-- `reason`: Reason for passing or failing the test case (empty for now, but can be populated later)
-- `notes`: Additional notes about the test case
-
-The `steps` property is a list of individual steps that need to be executed to test the user story. Each step has its own properties:
-
-- `step_id`: Unique identifier for the step
-- `description`: Brief description of the step
-- `preconditions`: List of preconditions required to execute the step (e.g., login form is visible)
-- `input_values`: List of input values needed to execute the step (e.g., username and password)
-- `expected_result`: Expected result of the step
-
-This format can be easily extended or modified as needed.
